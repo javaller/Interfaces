@@ -1,0 +1,36 @@
+package mysort;
+import java.util.Arrays;
+
+class Box implements Comparable {
+    int a,b,c; /// пишем переменные и ctrl + space
+    public Box(int a, int b, int c) {  /// получаем конструктор
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }    
+
+    public String toString() {
+        return a+":"+b+":"+c; 
+    }
+
+    public int compareTo(Object obj) {
+        Box box=(Box) obj;
+        return a*b*c - box.a*box.b*box.c;
+    }
+}
+
+public class MySort {
+    public static void main(String[] args) {
+        Box []data = { new Box(3,5,1),
+                     new Box(1,2,3), 
+                     new Box(2,4,3)};
+                     
+//Comparable cmp=new Box(1,1,1);
+
+        Arrays.sort(data); // Интерфейсы это возможность скрыть имя класса
+        // Интерефсы позволяют писать код и не знать имя класса
+        for(Box d:data) System.out.println(d);
+        
+    }
+    
+}
